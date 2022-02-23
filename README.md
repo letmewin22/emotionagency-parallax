@@ -15,6 +15,10 @@ Basic example
 import {Parallax} from '@emotionagency/parallax'
 
 const parallax = new Parallax()
+
+<div data-parallax="0.06"></div> // parallax power, [data-parallax] is the selector that makes the script work
+<div data-parallax="0.06" data-parallax-scale="1.07"></div> // scale elem if you need
+<div data-parallax="0.06" data-parallax-dir="-1"></div> // parallax direction (default is 1)
 ```
 
 Destroy instance

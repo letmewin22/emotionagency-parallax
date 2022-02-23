@@ -1,6 +1,6 @@
 {
   "name": "@emotionagency/parallax",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Simple and lightweight library for creating parallax effect",
   "main": "build/index.js",
   "types": "build/src/index.d.ts",
