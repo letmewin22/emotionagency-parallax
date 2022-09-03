@@ -45,7 +45,7 @@ export class Parallax {
     return position
   }
 
-  move($el: HTMLElement, distance: number, scale: number = 1): void {
+  move($el: HTMLElement, distance: number, scale = 1): void {
     const transformOpts = {
       scale: {x: scale, y: scale},
       move: {y: distance, x: undefined, z: undefined},
@@ -73,8 +73,12 @@ export class Parallax {
       const pos = this.getPosition($el) * direction
 
       let to = 0
+      let toScale = scale
       to = lerp(to, pos, coef)
-      this.move($el, to, scale)
+      if ($el.dataset.scaleAnimation) {
+        toScale = lerp(toScale, 1 + toScale * Math.abs(pos) * 0.0025, coef)
+      }
+      this.move($el, to, toScale)
     })
   }
 
@@ -97,7 +101,7 @@ export class Parallax {
 
   reset(): void {
     this.$els.length &&
-      this.$els.forEach(($el, i) => {
+      this.$els.forEach($el => {
         this.move($el, 0)
       })
   }
